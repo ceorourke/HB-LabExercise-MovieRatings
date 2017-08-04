@@ -127,12 +127,17 @@ class Rating(db.Model):
 ##############################################################################
 # Helper functions
 
-def connect_to_db(app):
-    """Connect the database to our Flask app."""
+# def connect_to_db(app):
+#     """Connect the database to our Flask app."""
 
-    # Configure to use our PstgreSQL database
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///ratings'
-    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+#     # Configure to use our PstgreSQL database
+#     app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///ratings'
+#     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+#     db.app = app
+#     db.init_app(app)
+
+def connect_to_db(app, db_uri="postgresql:///ratings"):
+    app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
     db.app = app
     db.init_app(app)
 
